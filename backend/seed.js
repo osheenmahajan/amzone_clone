@@ -4,12 +4,14 @@ async function seedData() {
   try {
     console.log('Connecting to database specifically for seeding...');
     
-    // Check if categories already exist to prevent duplicate demo data
-    const [existingCategories] = await db.execute('SELECT * FROM categories');
-    if (existingCategories.length > 0) {
-      console.log('Looks like data is already seeded! Products are ready.');
-      process.exit(0);
-    }
+    console.log('Clearing existing seed data...');
+    await db.execute('SET FOREIGN_KEY_CHECKS = 0');
+    await db.execute('TRUNCATE TABLE order_items');
+    await db.execute('TRUNCATE TABLE cart_items');
+    await db.execute('TRUNCATE TABLE orders');
+    await db.execute('TRUNCATE TABLE products');
+    await db.execute('TRUNCATE TABLE categories');
+    await db.execute('SET FOREIGN_KEY_CHECKS = 1');
 
     console.log('Inserting sample Categories...');
     await db.execute("INSERT INTO categories (name) VALUES ('Electronics'), ('Computers'), ('Accessories')");
@@ -22,7 +24,7 @@ async function seedData() {
         price: 1099.00,
         stock: 45,
         category_id: 1,
-        image_url: 'https://m.media-amazon.com/images/I/81sigpKWFjL._AC_SX679_.jpg'
+        image_url: 'https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/iphone-15-pro-max.png'
       },
       {
         name: 'MacBook Air 13-inch Apple M3 chip',
@@ -46,7 +48,7 @@ async function seedData() {
         price: 299.99,
         stock: 100,
         category_id: 1,
-        image_url: 'https://m.media-amazon.com/images/I/51A31B8t6qL._AC_SX679_.jpg'
+        image_url: 'https://images-na.ssl-images-amazon.com/images/I/71fQC-4r8aL.jpg'
       },
       {
         name: 'ASUS ROG Strix G16 (2024) Gaming Laptop',
@@ -54,7 +56,7 @@ async function seedData() {
         price: 1299.99,
         stock: 5,
         category_id: 2,
-        image_url: 'https://m.media-amazon.com/images/I/81P2h0JdEzL._AC_SX679_.jpg'
+        image_url: 'https://dlcdnwebimgs.asus.com/files/media/E16CF64B-339C-4BE7-A03A-C49389ABCF43/v1/img/gaming/pd.jpg'
       }
     ];
 

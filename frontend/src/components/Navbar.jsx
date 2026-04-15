@@ -34,7 +34,7 @@ const Navbar = () => {
       <div className="bg-amazon-navy text-white px-2 sm:px-4 flex items-center h-[60px] gap-2 sm:gap-4">
         {/* Logo */}
         <Link to="/" className="flex flex-col justify-center border border-transparent hover:border-white p-1 rounded">
-<img src="/src/assets/amazon-logo-white.svg" alt="Amazon" className="h-8 sm:h-10 w-auto" />
+<img src="/assets/amazon-logo-white.svg" alt="Amazon" className="h-8 sm:h-10 w-auto" />
         </Link>
         
         {/* Search Bar (Functional) */}

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150">
+  <!-- amazon -->
+  <text x="0" y="95" font-size="85" font-family="Arial, Helvetica, sans-serif" fill="white" font-weight="bold" letter-spacing="-2">
+    amazon
+  </text>
+
+  <!-- .in -->
+  <text x="320" y="90" font-size="55" font-family="Arial, Helvetica, sans-serif" fill="white" font-weight="bold">
+    .in
+  </text>
+
+  <!-- SMALL + BROAD Smile ONLY under amazon -->
+  <path 
+    d="M50 115 C140 130, 240 130, 300 115" 
+    stroke="#e67a00" 
+    stroke-width="7" 
+    fill="none" 
+    stroke-linecap="round"
+  />
+
+  <!-- Arrow (ends before .in) -->
+  <polygon 
+    points="295,110 315,115 300,125" 
+    fill="#e67a00"
+  />
+</svg>
