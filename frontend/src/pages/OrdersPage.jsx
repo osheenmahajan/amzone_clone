@@ -93,7 +93,7 @@ const OrdersPage = () => {
                       <div key={idx} className="flex gap-4">
                         <div className="w-20 shrink-0">
                           {/* Generic Box Icon used for orders since specific image mapping is omitted here for simplicity */}
-                          <img src="https://via.placeholder.com/150/ffffff/888888?text=Package" className="w-full object-contain shadow-sm border border-gray-200" alt="box"/>
+                          <img src={item.img} className="w-full object-contain shadow-sm border border-gray-200" alt="box"/>
                         </div>
                         <div className="flex-1 flex flex-col sm:flex-row justify-between gap-4">
                           <div className="flex-1">

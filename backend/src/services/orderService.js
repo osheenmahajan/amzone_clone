@@ -101,6 +101,7 @@ class OrderService {
         items: items.map(item => ({
           product: item.product,
           quantity: item.quantity,
+          img: item.image_url,
           price: parseFloat(item.price)
         }))
       };
