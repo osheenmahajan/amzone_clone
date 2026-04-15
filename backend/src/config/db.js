@@ -1,6 +1,8 @@
 const mysql = require('mysql2/promise');
 const { dbParams } = require('./env');
 
+console.log(dbParams)
+
 const pool = mysql.createPool(dbParams);
 
 // Test the connection
