@@ -1,6 +1,5 @@
 const orderRepository = require('../repositories/orderRepository');
 const cartRepository = require('../repositories/cartRepository');
-const productRepository = require('../repositories/productRepository');
 
 class OrderService {
   async placeOrder(userId, shippingAddress) {
@@ -94,13 +93,7 @@ class OrderService {
     
     // Fetch items for each order
     const fullOrders = await Promise.all(orders.map(async (order) => {
-      let items = await orderRepository.getOrderItems(order.id);
-
-      // FInding image URLs for each product in the order items
-      for (let item of items) {
-        const product = await productRepository.findById(item.product_id);
-        item.image_url = product ? product.image_url : null;
-      }
+      const items = await orderRepository.getOrderItems(order.id);
 
       return {
         order_id: order.id,
@@ -110,7 +103,7 @@ class OrderService {
         items: items.map(item => ({
           product: item.product,
           quantity: item.quantity,
-          img: item.image_url,
+          img: item.image_url || null,
           price: parseFloat(item.price)
         }))
       };

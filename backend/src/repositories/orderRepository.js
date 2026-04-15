@@ -56,7 +56,7 @@ class OrderRepository {
 
   async getOrderItems(orderId) {
     const query = `
-      SELECT oi.quantity, oi.price, p.name as product
+      SELECT oi.product_id, oi.quantity, oi.price, p.name as product, p.image_url
       FROM order_items oi
       JOIN products p ON oi.product_id = p.id
       WHERE oi.order_id = ?
